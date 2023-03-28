@@ -1,4 +1,0 @@
-pytest
-wheel
-twine
-flake8
