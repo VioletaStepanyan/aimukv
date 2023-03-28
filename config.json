@@ -1,0 +1,15 @@
+{
+    "version": "1.0",
+    "directory": "./",
+    "data_directories": [
+        {
+            "path": "./",
+            "max_size": "100GB"
+        }
+    ],
+    "engine": {
+        "config_url": "",
+        "config_file_path": "",
+        "config": {}
+    }
+}
