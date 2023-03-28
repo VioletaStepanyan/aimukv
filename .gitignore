@@ -5,10 +5,8 @@ dist
 .pytest_cache
 *.egg-info
 *.eggs
-src/aimrocks/lib_rocksdb.cpp
 *.so
 *.dylib
 lib*.so.*
 __pycache__
-src/aimrocks/include/rocksdb
 .DS_Store

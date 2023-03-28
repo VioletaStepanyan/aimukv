@@ -1,28 +1,28 @@
-# aimrocks: python wrapper for rocksdb
+# ukv.rocksdb: python wrapper for rocksdb
 
-`aimrocks` is a python package written in Cython, similar to [python-rocksdb](https://python-rocksdb.readthedocs.io/en/latest/).
+`ukv.rocksdb` is a python package written by python C bindings.
 
 It uses statically linked libraries for rocksdb and compression libraries it depends on, 
-so `aimrocks` can be used out of the box (without requiring additional installation of any of those).
+so `ukv.rocksdb` can be used out of the box (without requiring additional installation of any of those).
 
 ### Example usage
 
 ```python
-import aimrocks
-
-db_options = dict(
-  create_if_missing=True,
-  paranoid_checks=False,
-)
+import ukv.rocksdb as ukv
 
 db_path = '/tmp/example_db'
-rocks_db = aimrocks.DB(db_path, aimrocks.Options(**db_options), read_only=False)
+db = ukv.DataBase(db_path)
 
-batch = aimrocks.WriteBatch()
-batch.put(b'key_1', b'value_1')
-batch.put(b'key_1', b'value_1')
+db.main.set(1, b'value_1')
+db.main.set(2, b'value_1')
+
 ...
 
-rocks_db.write(batch)
+value = db.main.get(1)
+values = db.main.get((1, 2))
+
+...
+
+db.close()
 
 ```
